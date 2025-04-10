@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 10px;
+      width: 280px;
+      border-radius: 4px;
+    }
+
+    textarea, select, button {
+      width: 100%;
+      margin-bottom: 6px;
+    }
+
+    textarea {
+      background-color: #f9f9f9;
+      color: #000;
+      border: 1px solid #ccc;
+      padding: 0;
+      font-size: 14px;
+      resize: none;
+      height: 100px;
+    }
+
+    textarea::placeholder { 
+      color: #aaa;
+      padding: 3px 6px;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    button {
+      padding: 6px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #validateBtn { background: #ff9999; }
+    #improveBtn { background: #4caf50; }
+    #replaceBtn { background: #2196f3; }
+
+    .row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .row select {
+      flex: 1;
+      margin-bottom: 6px;
+    }
+
+    .row button {
+      flex: 1;
+      margin-bottom: 6px;
+    }
+
+    .pencil-checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      text-align: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+
+    }
+
+    #tone {
+      border-radius: 4px;
+      text-align: center;
+      background-color: rgb(47, 44, 44);
+      color: white;
+    }
+
+    #copyBtn {
+      width: 100%;
+      padding: 6px;
+      background: #f0ad4e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 6px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="pencil-checkbox">
+    <img src="pencil.png" alt="Pencil Icon" style="width: 20px; height: 20px; margin-right: 5px;"> Pencilo 
+  </div>
+
+  <textarea id="manualInput" rows="3" placeholder="Paste text here..."></textarea>
+  <button id="validateBtn">Validate</button>
+
+  <div class="row">
+    <select id="tone">
+      <option value="default">Default tone</option>
+      <option value="professional">Professional</option>
+      <option value="friendly">Friendly</option>
+      <option value="concise">Concise</option>
+      <option value="persuasive">Persuasive</option>
+    </select>
+    <button id="improveBtn">Rephrase</button>
+  </div>
+
+  <textarea id="output" rows="5"></textarea>
+  <button id="copyBtn">Copy to Clipboard</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
