@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "AI Grammar Checker",
+    "version": "1.0",
+    "description": "Improve grammar and fluency of text inputs using AI.",
+    "icons": {
+      "16": "pencil16x16.png",
+      "48": "pencil.png",
+      "128": "pencil.png"
+    },
+    "action": {
+      "default_title": "Text Improver",
+      "default_popup": "popup.html",
+      "default_icon": "pencil.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "permissions": [
+      "scripting",
+      "storage",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
+  
