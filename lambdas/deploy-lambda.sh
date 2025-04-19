@@ -5,6 +5,9 @@ lambda_function_name=$2
 lambda_function_dir=$3
 lambda_function_zip="$lambda_function_name.zip"
 
+# copy shared directory to the lambda function directory
+cp -r shared $lambda_function_dir
+
 # Create a zip file with the specified files
 cd $lambda_function_dir && zip -r ../$lambda_function_zip . && cd ..
 
@@ -28,6 +31,7 @@ else
 fi
 
 rm $lambda_function_zip
+rm -r $lambda_function_dir/shared
 
 
 # run example: bash deploy-lambda.sh <aws_profile> <lambda_function_name> <lambda_function_dir>
