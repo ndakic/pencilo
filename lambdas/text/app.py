@@ -24,13 +24,16 @@ if os.getenv("ENV", None) == "local":
 
 def lambda_handler(event, context):
     try:
-        text = event.get("text", "").strip()
-        mode = event.get("mode", "improve")
-        tone = event.get("tone", "default")
-
         api_key = event.get("api_key")
+        body = event.get("body")
+        text = body.get("text", "").strip()
+        mode = body.get("mode", "improve")
+        tone = body.get("tone", "default")
+
         if not api_key:
-            return _response(400, {"error": "API key is required."})
+            return _response(400, {
+                "error": "API key is required.",
+                "event": event})
 
         usage = get_api_key(api_key)
         prompt_tokens_estimated = estimate_tokens(text)
